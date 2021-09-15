@@ -1,0 +1,93 @@
+<!--pages/consumptionManagement/addVip/add_vip.wxml-->
+<view class="customer-detail">
+  <view style="margin-top:16rpx;">
+    <van-cell-group>
+        <van-field
+            value="{{ detailData.userName}}"
+            label="会员名称"
+            placeholder="请输入会员名称"
+            input-align="right" 
+            required
+            label-class="customer-label"
+            input-class="customer-input"
+            bindinput="changeInputValue"
+            data-key="userName" 
+        />
+        <van-field
+            value="{{ detailData.userPhone }}"
+            label="联系方式"
+            placeholder="请输入会员手机号"
+            maxlength="11"
+            required
+            input-align="right"
+            label-class="customer-label"
+            input-class="customer-input"
+            data-key="userPhone" 
+            bindinput="changeInputValue"
+            
+        />
+        <van-field
+            value="{{ detailData.birthday }}"
+            label="会员生日"
+            placeholder="请选择会员生日"
+            input-align="right"
+            label-class="customer-label"
+            input-class="customer-input"
+            readonly="true"
+            icon="arrow"
+            bindtap="checkDate"
+        />
+        <van-field
+            value="{{ detailData.userAddress }}"
+            label="联系地址"
+            input-align="right"
+            label-class="customer-label"
+            input-class="customer-input"
+            data-key="userAddress" 
+            bindinput="changeInputValue"
+            data-type="1"
+            icon="arrow"
+        />
+    </van-cell-group>
+    
+    <!-- <view class="customer-address">
+        <text class="font28 customer-label" style="line-height: 90rpx;">联系地址</text>
+        <view class="font28 customer-address-text" catchtap = "onClick" data-type="map" data-address="{{detailData.address}}">
+            <text>{{ detailData.userCoordinates || '我就是地址'}}</text>
+            <van-icon name="arrow" size="16" color="#949DA6"/>
+        </view>
+    </view> -->
+  </view>
+  <view class="btn_view"> 
+    <button class="submit_btn" bindtap="submitReview">提交申请</button>
+  </view>
+    <!--日期弹出层-->
+    <van-popup
+    show="{{ popupDateShow }}"
+    position="bottom"
+    close-on-click-overlay="false"
+    custom-class="van_popup"
+    round
+  >
+    <view class="but_view">
+      <label bindtap="onClose">取消</label>
+      <label bindtap="confirmPicker">完成</label>
+    </view>
+    <view class="check_date_view">{{selectedDate}}</view> 
+    <van-datetime-picker
+      type="date"
+      value="{{ currentDate }}"
+      min-date="{{ minDate }}"
+      max-date="{{maxDate}}"
+      formatter="{{formatter}}"
+      cancel-button-text=""
+      confirm-button-text=""
+      bind:input="chanageDate"
+      active-class="active_class"
+      item-height="30"
+    >
+    </van-datetime-picker>
+
+  </van-popup>
+</view>
+

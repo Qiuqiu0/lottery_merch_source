@@ -1,0 +1,207 @@
+<!--pages/customer/customerDetail/customerDetail.wxml-->
+<view class="customer-detail" bindtap="onClick" style="{{customerShow ? 'z-index:1' : ''}}">
+    <view class="customer-d-header">
+        <image class="customer-d-h-img" src="{{detailData.userPhoto}}"/>
+        <view class="customer-d-h-r">
+            <text class="font32" style="display:block;color:#303133;padding-bottom:10rpx">{{detailData.userName}}</text>
+            <view class="customer-info-top">
+                <view class="customer-info-view">
+                    <image src="/pages/images/integral2.png"></image>
+                    <text class="customer-info-text font28">积分  {{detailData.balanceIntegral || 0}}</text>
+                </view>
+                <view class="customer-info-view">
+                    <image src="/pages/images/balance.png"></image>
+                    <text class="customer-info-text font28">余额  {{detailData.balanceAmt || 0}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view style="margin-top:16rpx;">
+        <van-cell-group>
+            <van-field
+                value="{{ detailData.merchName }}"
+                label="商家名称"
+                placeholder="商家名称"
+                input-align="right"
+                readonly="true"
+                label-class="customer-label"
+                input-class="customer-input"
+                readonly="true"
+            />
+            <van-field
+                value="{{ detailData.userPhone }}"
+                label="联系方式"
+                placeholder="请输入客户手机号"
+                input-align="right"
+                label-class="customer-label"
+                input-class="customer-input"
+                readonly="true"
+            />
+            <van-field
+                value="{{ detailData.birthday }}"
+                label="出生日期"
+                placeholder="请输入客户出生日期"
+                input-align="right"
+                label-class="customer-label"
+                input-class="customer-input"
+                readonly="true"
+            />
+        </van-cell-group>
+        <view class="customer-address">
+            <text class="font28 customer-label" style="line-height: 90rpx;">联系地址</text>
+            <view class="font28 customer-address-text" catchtap="onClick" data-type="map" data-address="{{detailData.address}}">
+                <text>{{ detailData.userAddress || '我就是地址'}}</text>
+                <van-icon name="arrow" size="16" color="#949DA6"/>
+            </view>
+        </view>
+    </view>
+    <view style="margin-top:16rpx;">
+        <van-cell>
+            <view slot="title">
+                <view class="van-cell-text font28">用户等级</view>
+            </view>
+        </van-cell>
+        <van-cell>
+            <van-dropdown-menu active-color="#1989fa">
+                <van-dropdown-item  value="{{checkValue}}" options="{{levelList }}"  bind:change="onChangeUserlevel" />
+            </van-dropdown-menu>
+        </van-cell>
+    </view>
+    <view style="margin-top:16rpx;">
+        <van-cell>
+            <view slot="title">
+                <view class="van-cell-text font28">个性标签</view>
+            </view>
+        </van-cell>
+        <van-cell>
+            <view class="custormer-tab">
+                <view wx:for="{{labelItem}}" wx:key="*this" class="custormer-tab-item font28" data-type="show" data-item="{{item}}" catchtap="onClick" catchlongpress="handleLongPress">
+                    <text>{{item.tagName}}</text>
+                    <image wx:if="{{show}}" data-item="{{item}}" catchtap = "delLabel" class="custormer-tab-close" src="../../images/close.png"/>
+                </view>
+                <view class="custormer-tab-item custormer-tab-border font28" data-type="add" catchtap="onClick">
+                    <van-icon name="plus" size="15"/>
+                </view>
+            </view>
+        </van-cell>
+    </view>
+
+    <view style="margin-top:16rpx;margin-bottom: 20rpx;">
+        <van-cell
+            is-link
+            title="消费历史"
+            link-type="navigateTo"
+            url="/pages/customer/consumptionHistory/consumptionHistory?userId={{detailData.userId}}&merchId={{detailData.merchId}}"
+            title-class="customer-label"
+            />
+        <van-cell
+            is-link
+            title="抽奖历史"
+            link-type="navigateTo"
+            url="/pages/customer/lotteryHistory/lotteryHistory?type=0&userId={{detailData.userId}}&merchId={{detailData.merchId}}"
+            title-class="customer-label"
+            />
+        <van-cell
+            is-link
+            title="兑奖历史"
+            link-type="navigateTo"
+            url="/pages/customer/lotteryHistory/lotteryHistory?type=1&userId={{detailData.userId}}&merchId={{detailData.merchId}}"
+            title-class="customer-label"
+            />
+        <van-cell
+            is-link
+            title="积分历史"
+            link-type="navigateTo"
+            url="/pages/customer/balanceOrIntegralHistory/balanceOrIntegralHistory?type=2&userId={{detailData.userId}}"
+            title-class="customer-label"
+            />
+        <van-cell
+            is-link
+            title="余额历史"
+            link-type="navigateTo"
+            url="/pages/customer/balanceOrIntegralHistory/balanceOrIntegralHistory?type=1&userId={{detailData.userId}}"
+            title-class="customer-label"
+            />
+    </view>
+
+    <van-popup
+      show="{{ showLabel }}"
+      position="bottom"
+      close-on-click-overlay="false"
+      custom-style="height:95%"
+    >
+       <view class="customer-popup-label-wap">
+            <view class="customer-popup-label">
+                <van-icon data-type="label" catchtap = "onClick" name="arrow-left" />
+                <view class="customer-popup-label-search">
+                    <van-search
+                        value="{{ tagName }}"
+                        placeholder="请输入标签"
+                        use-action-slot
+                        bind:change="onChange"
+                        maxlength="4"
+                    >
+                        <view slot="action" data-type="send" bind:tap="onClick">添 加</view>
+                    </van-search>
+                </view>
+            </view>
+            <scroll-view scroll-y="true" style="height: 1000rpx;" bindscrolltolower="handleBindscrolltolowerTag">
+                <view class="customer-popup-label-content">
+                    <view class="customer-popup-label-item" data-name="{{item.tagName}}" data-type="tagName" catchtap = "onClick" wx:for="{{popupItem}}" wx:key="*this" class="customer-popup-label-text font28">{{item.tagName}}</view>
+                    <view class="no-more" wx:if="{{noMore}}" style="color: #cecece;margin-top:20rpx">暂无更多数据</view>   
+                </view>
+                <null isShowNull="{{isShowNull}}"/>
+            </scroll-view>
+       </view>
+    </van-popup>
+
+  <van-popup
+      show="{{ customerShow }}"
+      round
+      position="bottom"
+      custom-style="height:60%"
+      z-index="1"
+      close-on-click-overlay="false"
+    >
+      <view class="customer_view">
+        <view class="customer_info_head">
+        <text style="float: left;margin-left: 10rpx;" wx:if="{{type == 1}}" class="search-text" data-type="finish" bindtap="checkdUser">完成</text>
+        <image style="float: left;margin-left: 10rpx;width: 38rpx;height: 30rpx;" wx:else class="search-img checked-img" data-type="checked" src="/pages/images/checked.png" bindtap="checkdUser"/>
+          <label>{{activeTagName}}</label>
+          <image src="/pages/images/close2.png" data-type="close" bindtap="onClick"></image>
+        </view>
+        <scroll-view scroll-y="true" style="height: 800rpx;padding-top:130rpx;" bindscrolltolower="handleBindscrolltolowerUser">
+            <view class="customer-info" wx:for="{{merchLabelItem}}" wx:key="*this" data-type="detail" data-item="{{item}}" >
+                <view class="customer-checkbox" wx:if="{{type == 1}}">
+                    <van-checkbox use-icon-slot value="{{ item.checked }}" data-index="{{index}}" bind:change="onChange2">
+                        <image class="customer-checkbox-img" slot="icon" src="{{ item.checked ? '../../images/checkout.png' : '../../images/nocheckout.png' }}" />
+                    </van-checkbox>
+                </view>
+                <view class="customer-info" catchtap = "onClick">
+                    <image class="customer-info-img" src="{{item.userPhoto}}"/>
+                    <view class="customer-info-right">
+                        <view class="customer-info-title">{{item.userName}} {{item.userPhone}}</view>
+                        <text class="customer-info-text">商家名称： {{item.merchName}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="no-more" wx:if="{{noMore}}" style="color: #cecece;margin-top:20rpx">暂无更多数据</view>
+        </scroll-view>
+        <null isShowNull="{{isShowNull}}"/>
+      </view>
+      <view class="customer-list-footer footer" wx:if="{{type == 1}}" style="justify-content: flex-start;">
+        <van-checkbox value="{{ checked }}" label-class="font32" icon-size="36rpx" data-type="all" bind:change="onChange2">
+            <image class="customer-checkbox-img" slot="icon" src="{{ checked ? '../../images/checkout.png' : '../../images/nocheckout.png' }}" />
+            <text style="color:#303133">全选</text>
+        </van-checkbox>
+        <!-- <van-button data-type="send" bindtap="onClick" custom-style="height: 78rpx;font-size:32rpx;background:#398BFB;color:#fff;border-radius: 8rpx;margin-right:34rpx">发短信</van-button> -->
+        <text class="footer-text" data-type="checkGoods" catchtap="onClickHide">发放奖品</text>
+        <text class="footer-text">发短信</text>
+    </view>
+   
+    </van-popup>
+   <!-- <view class="footer customer-footer">
+        <van-button bindtap="handleToAddPage" custom-style="height: 78rpx;font-size:32rpx;background:#398BFB;color:#fff;border-radius: 8rpx;margin-right:34rpx">添加客户</van-button>
+    </view> -->
+    <goods-choose isShow="{{show}}"  merchId="{{detailData.merchId}}" checkArr="{{checkArr}}"></goods-choose>
+</view>

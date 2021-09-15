@@ -1,0 +1,14 @@
+{
+  "usingComponents": {
+    "van-checkbox": "/miniprogram_npm/@vant/weapp/checkbox",
+    "van-checkbox-group": "/miniprogram_npm/@vant/weapp/checkbox-group",
+    "van-button": "/miniprogram_npm/@vant/weapp/button",
+    "van-overlay": "/miniprogram_npm/@vant/weapp/overlay",
+    "tab":"/components/tab/tab",
+    "null-view":"/components/null/null",
+    "van-action-sheet": "/miniprogram_npm/@vant/weapp/action-sheet",
+    "van-icon": "@vant/weapp/icon/index",
+    "goods-choose":"/components/goodsChoose/goodsChoose"
+  },
+  "navigationBarTitleText": "客户列表"
+}

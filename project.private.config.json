@@ -1,0 +1,107 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/withdrawal/withdrawal",
+          "pathName": "pages/withdrawal/withdrawal",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/accountDetails/account_details",
+          "pathName": "pages/accountDetails/account_details",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/businessVerification/business_verification",
+          "pathName": "pages/businessVerification/business_verification",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/writeOffRecord/write_off_record",
+          "pathName": "pages/writeOffRecord/write_off_record",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/consumptionManagement/consumption_management",
+          "pathName": "pages/consumptionManagement/consumption_management",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/customer/customerList/customer_list",
+          "pathName": "pages/customer/customerList/customer_list",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/customer/customer",
+          "pathName": "pages/customer/customer",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/consumptionManagement/consumptionRecord/consumption_record",
+          "pathName": "pages/consumptionManagement/consumptionRecord/consumption_record",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/consumptionManagement/addVip/add_vip",
+          "pathName": "pages/consumptionManagement/addVip/add_vip",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/consumptionManagement/vipList/vip_list",
+          "pathName": "pages/consumptionManagement/vipList/vip_list",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/customer/consumptionHistory/consumptionHistory",
+          "pathName": "pages/customer/consumptionHistory/consumptionHistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/customer/lotteryHistory/lotteryHistory",
+          "pathName": "pages/customer/lotteryHistory/lotteryHistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/customer/sendMessage/sendMessage",
+          "pathName": "pages/customer/sendMessage/sendMessage",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/customer/customerDetail/customerDetail",
+          "pathName": "pages/customer/customerDetail/customerDetail",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

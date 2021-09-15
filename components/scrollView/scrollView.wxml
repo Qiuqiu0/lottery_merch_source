@@ -1,0 +1,3 @@
+<scroll-view scroll-y="true" style="height: {{scrollHeigth}}rpx" bindscrolltolower="handleBindscrolltolower">
+    <slot></slot>
+</scroll-view>

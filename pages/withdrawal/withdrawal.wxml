@@ -1,0 +1,32 @@
+<!--pages/withdrawal/withdrawal.wxml-->
+<view class="withdrawal_cont">
+  <view class="cont_info">
+    <view class="cont_top">
+      <view class="top_head">¥ <text>{{withdrawalInfo.balanceAmt || 0}}</text></view>
+      <text class="top_tip">可提现金额</text>
+      <view class="cont_mid">提现金额</view>
+      <view class="cont_tx">
+          <label>¥</label>
+            <input class="weui-input" value="{{withdrawAmt}}" bindinput="bindKeyInput" type="number" placeholder="最低可提现1元" />
+          <button size="mini" style="border:none" bindtap="onClick">
+            全部
+          </button>
+      </view>
+      <view class="cont_bot">
+        <view class="cont_info_top">
+            <label>微信号</label>
+            <text>{{withdrawalInfo.userWechatCode || ''}}</text>
+        </view>
+        <view class="cont_info_top info2">
+            <label>真实姓名</label>
+            <text>{{withdrawalInfo.applyRealName || ''}}</text>
+          </view>
+      </view>
+    </view>
+    <view class="text_view" ><text bindtap="withdrawalInfo">账户明细</text></view>
+  </view>
+  <view class="btn_view"> 
+    <button class="submit_btn" bindtap="submitReview">提交申请</button>
+    <text>* 每月25日可提现上月补贴</text>
+  </view>
+</view>

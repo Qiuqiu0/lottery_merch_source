@@ -1,0 +1,80 @@
+<!--pages/writeOffRecord/write_off_record.wxml-->
+<view class="write_off_cont">
+  <van-tabs active="{{ active }}" 
+    bind:change="onChange" 
+    title-active-color="#398BFB"
+    title-inactive-color="#BFC2CC"
+    line-width="0"
+    nav-class="van_tabs"
+    tab-class="van_tabs"
+    sticky="true"
+    >
+    <van-tab title-style="32rpx;" title="{{it.title}}" wx:for="{{navList}}" wx:for-item="it" wx:key="index" >
+      <view class="view_time">   
+        <label class="date_label" bindtap="checkDate">{{convertDateMonth}}</label>
+        <image class="date_img" src="../images/date_icon.png"></image>
+      </view>
+      <view  class="scroll_view_cont" style="padding-top:84rpx;">
+        <view wx:for="{{listItem}}" wx:for-item="item" wx:key="key"  class="view_cont">
+          <view class="cont_info cont_info_top">
+            <label>用户昵称</label>
+            <text>{{item.userNickname}}</text>
+          </view>
+          <view class="cont_info cont_info_mid">
+            <label>中奖日期</label>
+            <text>{{item.winningDate}}</text>
+          </view>
+          <view  wx:if="{{it.type}}" class="cont_info cont_info_bot">
+            <label>有效日期</label>
+            <text>{{item.convertEndTime}}</text>
+          </view>
+          <view  wx:else class="cont_info cont_info_bot">
+            <label>核销日期</label>
+            <text>{{item.convertDate}}</text>
+          </view>
+          <view class="page_hd">
+            <van-divider  customStyle="margin:26rpx 0;"/>
+            <view class="hd_left">
+              <image class="page_hdImg" src="{{item.goodsImg}}" ></image>
+            </view>
+            <label class="page_title">{{item.goodsName}}</label>
+          </view>   
+        </view>  
+        <view class="is_more" wx:if="{{noMore}}">
+            我是有底线的
+        </view>
+      </view>
+      
+      <null-view  isShowNull="{{isShowNull}}"></null-view>
+    </van-tab>
+  </van-tabs>
+  <!--日期弹出层-->
+  <van-popup
+    show="{{ popupDateShow }}"
+    position="bottom"
+    close-on-click-overlay="false"
+    custom-class="van_popup"
+    round
+  >
+    <view class="but_view">
+      <label bindtap="onClose">取消</label>
+      <label bindtap="confirmPicker">完成</label>
+    </view>
+    <view class="check_date_view">{{selectedDate}}</view> 
+    <van-datetime-picker
+      type="year-month"
+      value="{{ currentDate }}"
+      min-date="{{ minDate }}"
+      formatter="{{formatter}}"
+      cancel-button-text=""
+      confirm-button-text=""
+      bind:input="chanageDate"
+      active-class="active_class"
+      item-height="30"
+    >
+    </van-datetime-picker>
+
+  </van-popup>
+
+  
+</view>

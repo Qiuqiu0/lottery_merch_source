@@ -1,0 +1,200 @@
+<!--pages/consumptionManagement/consumptionRecord/consumption_record.wxml-->
+<!--pages/consumptionManagement/addVip/add_vip.wxml-->
+<view class="customer-detail">
+  <view style="margin-top:16rpx;">
+    <van-cell-group>
+        <view class="detail_phone_view">
+            <van-field
+            value="{{detailData.userPhone}}"
+            label="联系方式"
+            placeholder="请输入会员手机号"
+            input-align="right"
+            maxlength="11"
+            required
+            label-class="customer-label"
+            input-class="customer-input"
+            bindinput="onClickPhone"
+            />
+            <view class="{{phoneInfoViewShow?'user_info_phone_view':'user_info_phone_hide'}}">
+                <view class="customer-info-right" wx:for="{{userPhoneList}}" 
+                wx:for-item="ite" wx:key="*this" 
+                data-userInfo="{{ite}}" 
+                bindtap="onClickPhoneNum">
+                  <text class="customer-info-text" style="margin-right:40rpx">{{ite.userName}}</text>
+                  <text class="customer-info-text">{{ite.userPhone}}</text>
+                </view>
+            </view>    
+        </view>
+        <van-field
+            value="{{detailData.userName}}"
+            label="会员名称"
+            placeholder="请输入会员名称"
+            required
+            input-align="right"
+            label-class="customer-label"
+            input-class="customer-input"
+            data-key="userName"
+            data-type="1"
+            bindinput="changeInputValue"
+            disabled="{{isDisabled}}"
+        />
+        <van-field
+            value="{{ detailData.birthday }}"
+            label="会员生日"
+            placeholder="请选择会员生日"
+            input-align="right"
+            label-class="customer-label"
+            input-class="customer-input"
+            readonly="true"
+            icon="arrow"
+            disabled="{{isDisabled}}"
+            bindtap="{{isDisabled?'':'checkDate'}}"
+        />
+        <van-field
+            value="{{ detailData.userAddress }}"
+            label="联系地址"
+            input-align="right"
+            label-class="customer-label"
+            input-class="customer-input"
+            data-key="userAddress" 
+            bindinput="changeInputValue"
+            data-type="1"
+            disabled="{{isDisabled}}"
+            icon="arrow"
+        />
+    </van-cell-group>
+    <!-- <view class="customer-address">
+        <text class="font28 customer-label" style="line-height: 90rpx;">联系地址</text>
+        <view class="font28 customer-address-text" catchtap = "onClick" data-type="map" data-address="{{detailData.address}}">
+            <text>{{ detailData.userCoordinates || '我就是地址'}}</text>
+            <van-icon name="arrow" size="16" color="#949DA6"/>
+        </view>
+    </view> -->
+  </view>
+  <view style="margin-top:16rpx;">
+    <van-cell-group>
+      <van-field
+            value="{{detailData.goodsName}}"
+            label="消费产品"
+            input-align="right"
+            label-class="customer-label"
+            input-class="customer-input"
+            required
+            icon="arrow"
+            readonly="true"
+            bindtap="getDataItem"
+        />
+    </van-cell-group>
+  </view>
+  <view class="add-com-price" style="margin-top:0">
+    <view class="add-cell-wap add-cell-input-wap">
+        <text class="add-com-title">消费金额</text>
+        <input data-key="twDetail" value="{{detailData.payAmt}}"  data-key="payAmt" bindinput="changeInputValue"  class="add-cell-input" placeholder="请输入消费金额" type="number" maxlength="30" placeholder-style="color:#BFC2CC;"/>
+        <text class="add-cell-input-price">元</text>
+    </view>
+    <view class="add-cell-wap add-cell-input-wap">
+        <text class="add-com-title">积分</text>
+        <input class="add-cell-input"  value="{{detailData.integral}}" data-key="integral" bindinput="changeInputValue" placeholder="请输入金额" type="number" maxlength="30" placeholder-style="color:#BFC2CC;"/>
+        <text class="add-cell-input-price">分</text>
+    </view>
+  </view>
+  <view class="add-com-price">
+    <view class="add-cell-wap add-cell-input-wap">
+        <text class="add-com-title">复购周期</text>
+        <input class="add-cell-input"  value="{{detailData.cycleDay}}" data-key="cycleDay" bindinput="changeInputValue" placeholder="请输入复购周期" type="number" maxlength="30" placeholder-style="color:#BFC2CC;"/>
+        <text class="add-cell-input-price">天</text>
+    </view>
+  </view>
+  <view class="btn_view"> 
+    <button class="submit_btn" bindtap="submitReview">确定</button>
+  </view>
+  <!--消费列表弹窗-->
+  <van-popup
+      show="{{goodsShow }}"
+      round
+      position="bottom"
+      custom-style="height:60%"
+      z-index="99"
+    >
+      <view class="customer_view">
+        <view class="info_head">
+          <view class="customer_info_head">
+            <label>消费产品</label>
+            <image src="/pages/images/close2.png" bindtap="onGoodsClose"></image>
+          </view>
+          <view style="text-align: right;padding: 18rpx;">
+            <button style="background: #1989fa;color: #fff;"  size="mini" bindtap="addGoods">添加</button>
+          </view>
+          <view class="search">
+              <image class="search-img" src="/pages/images/search.png"/>
+              <input class="search-input" value="{{searchValue}}" bindinput="handleSearch" placeholder="请输入商品名称进行搜索" placeholder-style="color:#BFC2CC;"/>
+          </view>
+        </view>
+        <view style="padding-top: 314rpx;">
+          <view class="customer-info" wx:for="{{listItem}}" wx:for-item="it" wx:key="index" data-obj="{{it}}" bindtap="checkGoods">
+            <image class="customer-info-img" src="{{it.goodsImg}}"/>
+              <view class="customer-info-right">
+                  <text class="customer-info-text">{{it.goodsName}}</text>
+              </view>
+          </view> 
+          <view class="no-more" wx:if="{{noMore}}" style="color: #cecece;margin-top:20rpx">暂无更多数据</view>   
+        </view>
+        <null-view  isShowNull="{{isShowNull}}"></null-view>  
+      </view>
+
+    </van-popup>
+    <!--日期弹出层-->
+  <van-popup
+    show="{{ popupDateShow }}"
+    position="bottom"
+    close-on-click-overlay="false"
+    custom-class="van_popup"
+    round
+  >
+    <view class="but_view">
+      <label bindtap="onClose">取消</label>
+      <label bindtap="confirmPicker">完成</label>
+    </view>
+    <view class="check_date_view">{{selectedDate}}</view> 
+    <van-datetime-picker
+      type="date"
+      value="{{ currentDate }}"
+      min-date="{{ minDate }}"
+      max-date="{{maxDate}}"
+      formatter="{{formatter}}"
+      cancel-button-text=""
+      confirm-button-text=""
+      bind:input="chanageDate"
+      active-class="active_class"
+      item-height="30"
+    >
+    </van-datetime-picker>
+
+  </van-popup>
+
+   <!--添加商品弹出层-->
+  <van-popup
+    show="{{ popupGoodsShow }}"
+    position="center"
+    close-on-click-overlay="false"
+    custom-class="van_popup"
+    closeable
+    bind:close="onClose2"
+    round
+    z-index="100"
+  >
+  <view style="margin-top:40rpx">
+    <view class="add-com-price">
+      <view class="add-cell-wap add-cell-input-wap" style="margin-top:60rpx">
+            <text class="add-com-title" style="width:120rpx">商品名称</text>
+            <input class="add-cell-input" style="width:440rpx;" value="{{goodsName}}"  bindinput="changeGoodsName" placeholder="请输入商品名称" type="text" maxlength="30" placeholder-style="color:#BFC2CC;" />
+      </view>
+    </view>
+    <view style="text-align: center;padding: 18rpx;padding:60rpx">
+        <button style="background: #1989fa;color: #fff;"  size="mini" bindtap="addGoodsSure">确定</button>
+      </view>
+  </view>
+  </van-popup>
+</view>
+
+

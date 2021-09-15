@@ -1,0 +1,158 @@
+/* pages/withdrawal/withdrawal.wxss */
+view{
+  margin: 0 auto;
+}
+.withdrawal_cont{
+  margin: 0 auto;
+  width: 100%;
+  height:99vh;
+  background: #F8F8F8;
+}
+.cont_info{
+  margin: 0 auto;
+  width: 100%;
+ 
+background: #F8F8F8;
+}
+.cont_top{
+  margin: 0 auto;
+width: 92%;
+/* height: 568rpx; */
+background: #FFFFFF;
+text-align: center;
+padding-top: 44rpx;
+}
+.cont_mid{
+  margin-top: 102rpx;
+  margin-bottom:30rpx;
+  text-align: left;
+  padding-left: 32rpx;
+  
+font-weight: bold;
+color: #303133;
+line-height:44rpx;
+font-size:32rpx;
+}
+.cont_bot{
+  width:100%;
+  height: 180rpx;
+  background: #EFF4FD;
+}
+.cont_info_top{
+  width:100%;
+  text-align: left;
+  background: #EFF4FD;
+  clear: both;
+}
+.cont_info_top label{
+  width:130rpx;
+  display:inline-block;
+  margin:30rpx 26rpx 30rpx 32rpx;
+}
+.info2 label{
+  margin-top: 0;
+}
+.cont_info_top text{
+font-size: 32rpx;
+font-weight: 500;
+color: #303133;
+}
+.top_head{
+  margin: 0 auto;
+font-size: 60rpx;
+font-family: DINPro-Bold, DINPro;
+font-weight: bold;
+line-height: 76rpx;
+color: #303133;
+}
+.top_tip{
+  
+font-size: 28rpx;
+font-family: PingFang-SC-Medium, PingFang-SC;
+font-weight: 500;
+color: #303133;
+}
+.btn_view,.text_view{
+  width: 92%;
+  margin: 0 auto;
+  /* background: #fff; */
+  text-align: center;
+}
+.text_view{
+  text-align: right;
+  padding:30rpx 0 30rpx 0;
+
+}
+.btn_view{
+  padding-bottom: 50rpx;
+}
+.text_view text{
+  font-size: 28rpx;
+font-weight: 500;
+color: #398BFB;
+display: inline-block;
+margin-right:26rpx;
+}
+.submit_btn{
+width: 100%;
+height: 94rpx;
+line-height: 94rpx;
+background: #398BFB;
+border-radius: 8rpx;
+color: #fff;
+margin-bottom: 12rpx;
+
+
+}
+.btn_view text{
+  font-size: 24rpx;
+font-weight: 500;
+color: #398BFB;
+}
+.cont_tx{
+  margin: 0 auto;
+  text-align: left;
+  padding-bottom: 20rpx;
+}
+.cont_tx label{
+font-size: 32rpx;
+font-weight: bold;
+color: #303133;
+margin-left: 32rpx;
+margin-right: 18rpx;
+float: left;
+
+
+}
+.cont_tx input{
+width:75%;
+height: 44rpx;
+font-size: 32rpx;
+font-family: PingFang-SC-Medium, PingFang-SC;
+font-weight: 500;
+color: #303133;
+line-height: 44rpx;
+float: left;
+margin-top: -1px;
+}
+.cont_tx input::placeholder{  
+font-size: 32rpx;
+font-family: PingFang-SC-Medium, PingFang-SC;
+font-weight: 500;
+color: #BFC2CC;
+}
+.cont_tx button{
+width: 14%;
+padding: 0;
+margin: 0;
+line-height: 40rpx;
+font-size: 28rpx;
+font-weight: 500;
+background: #fff;
+color: #398BFB;
+}
+.cont_tx button::after{
+  border:none;
+}
+
+

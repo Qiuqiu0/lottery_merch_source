@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "van-cell": "/miniprogram_npm/@vant/weapp/cell",
+    "van-cell-group": "/miniprogram_npm/@vant/weapp/cell-group" ,
+    "van-divider":"/miniprogram_npm/@vant/weapp/divider",
+    "null-view":"/components/null/null"
+  },
+  "navigationBarTitleText": "账户明细"
+}

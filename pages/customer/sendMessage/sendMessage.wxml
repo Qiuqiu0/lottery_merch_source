@@ -1,0 +1,9 @@
+<!--pages/customer/sendMessage/sendMessage.wxml-->
+<view class="send_msm_view">
+  <view class="msm_view_cont">
+    <textarea class="msm_textarea font32" value="" placeholder="请输入短信内容" placeholder-style="color: #BFC2CC;font-size:32rpx"> </textarea>
+  </view>
+  <view class="btn_view"> 
+    <button class="submit_btn" bindtap="submitReview">确认发送</button>
+  </view>
+</view>

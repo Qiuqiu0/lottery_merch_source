@@ -1,0 +1,7 @@
+<view class="null-wap" wx:if="{{isShowNull}}">
+    <view class="null">
+        <image src="/pages/images/null.png"/>
+        <view class="null-text1">今日无数据</view>
+        <view class="null-text2">非常抱歉，请原谅我...</view>
+    </view>
+</view>

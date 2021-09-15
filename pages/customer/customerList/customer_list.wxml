@@ -1,0 +1,63 @@
+<!--pages/customer/customerList/customer_list.wxml-->
+<view class="customer-list" style="">
+    <view class="customer-list-header">
+        <view class="business-tab">
+            <tab tabItem="{{tabItem}}" defalutIndex="{{userType}}" bind:tabChange="changeTab"/>
+        </view>
+        <view class="search customer-list-search">
+            <image class="search-img" src="/pages/images/search.png"/>
+            <input class="search-input" value="{{searchValue}}" data-type="searchValue" bindinput="handleSearch" placeholder="请输入客户名称或者手机号进行搜索备份" placeholder-style="color:#BFC2CC;"/>
+            <text wx:if="{{type == 1}}" class="search-text" data-type="finish" bindtap="checkdUser">完成</text>
+            <image wx:else class="search-img checked-img" data-type="checked" src="/pages/images/checked.png" bindtap="checkdUser"/>
+        </view>
+    </view>
+    <view class="customer-list-content">
+        <view wx:for="{{listItem}}" wx:key="index" class="customer-list-item">
+            <view class="customer-checkbox" wx:if="{{type == 1}}">
+                <van-checkbox use-icon-slot value="{{ item.checked }}" data-index="{{index}}" bind:change="onChange">
+                    <image class="customer-checkbox-img" slot="icon" src="{{ item.checked ? '../../images/checkout.png' : '../../images/nocheckout.png' }}" />
+                </van-checkbox>
+            </view>
+            <view class="customer-info">
+                <view class="customer-info-top">
+                    <view class="customer-info-view" data-id="{{item.userId}}" data-type="2" bindtap="handleToPage">
+                        <image src="/pages/images/integral2.png"></image>
+                        <text class="customer-info-text font28">积分  {{item.balanceIntegral || 0}}</text>
+                    </view>
+                    <view class="customer-info-view" data-id="{{item.userId}}" data-type="1" bindtap="handleToPage">
+                        <image src="/pages/images/balance.png"></image>
+                        <text class="customer-info-text font28">余额  {{item.balanceAmt || 0}}</text>
+                    </view>
+                    <view class="customer-info-view">
+                        <image src="/pages/images/level.png"></image>
+                        <text class="customer-info-text font28">等级  {{levelList[item.userLevel-1]}}</text>
+                    </view>
+                </view>
+                <view class="customer-info-bottom" data-id="{{item.userId}}" bindtap="handleToPageDetail">
+                    <image class="customer-info-img" src="{{item.userPhoto}}"/>
+                    <view class="customer-info-right">
+                        <view class="customer-info-title font32">{{item.userName}} {{item.userPhone}}</view>
+                        <text class="customer-info-text into-text2 font28">最近消费时间： {{item.payTimeLast}}</text>
+                        <view class="customer-info-text info-text2 font28">最近消费品名： {{item.payGoodsNameLast}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="is_more" wx:if="{{noMore}}">
+            我是有底线的
+    </view>
+    <null-view  isShowNull="{{isShowNull}}"></null-view>
+    <view class="customer-list-footer footer" wx:if="{{type == 1}}" style="justify-content: flex-start;">
+        <van-checkbox value="{{ checked }}" label-class="font32" icon-size="36rpx" data-type="all" bind:change="onChange">
+            <image class="customer-checkbox-img" slot="icon" src="{{ checked ? '../../images/checkout.png' : '../../images/nocheckout.png' }}" />
+            <text style="color:#303133">全选</text>
+        </van-checkbox>
+        <!-- <van-button data-type="send" bindtap="onClick" custom-style="height: 78rpx;font-size:32rpx;background:#398BFB;color:#fff;border-radius: 8rpx;margin-right:34rpx">发短信</van-button> -->
+        <text class="footer-text" data-type="checkGoods" catchtap="onClickHide">发放奖品</text>
+        <text class="footer-text">发短信</text>
+    </view>
+   
+    <goods-choose isShow="{{show}}" merchId="{{merchId}}" checkArr="{{checkArr}}"></goods-choose>
+</view>
+

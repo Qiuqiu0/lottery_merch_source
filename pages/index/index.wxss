@@ -1,0 +1,239 @@
+.container{
+  width: 100%;
+  height:99vh;
+  background: #F8F8F8;
+  margin-top: 2rpx;
+}
+.page_hd,.page_mid,.mid_top,.page_bot{
+  margin:0 auto;
+  width: 100%;
+  text-align: left;
+
+}
+.page_hd{
+  width: 90%;
+  height: 88rpx;
+}
+
+.hd_left{
+  width: 80rpx;
+  height: 80rpx;
+  /* border: 1px dashed #8f8f8f; */
+  float: left;
+  margin:24rpx 16rpx 24rpx 0;
+
+}
+.page_hdImg{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+.page_title{
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #303133;
+  line-height: 44rpx;
+  display: inline-block;
+  text-align: left;
+  margin:42rpx 0 42rpx 0px;
+}
+.authTel{
+  border: none;
+  font-size: 16px;
+  color: #303133;
+  background-color: none;
+  width: 200rpx;
+  margin: 0;
+}
+.authTel::after{
+  border: none;
+}
+
+.mid_top{
+  clear: both;
+  width: 90%;
+  height:302rpx;
+  background: #398BFB;
+  border-radius: 16rpx;
+  color:#FFFFFF;
+
+}
+.top_bot{
+  display: flex;
+  text-align: center;
+}
+.mid_bot{
+  margin: 0 auto;
+  width: 90%;
+  height: 164rpx;
+  background: #FFFFFF;
+  border-radius: 16rpx;
+  margin-top: -24px;
+
+}
+.mid_but{
+ float:  right;
+ margin-top: 48rpx;
+ margin-right: 24rpx;
+}
+.mid_but button{
+  width: 140rpx;
+  height: 50rpx;
+  font-size: 24rpx;
+  background: #398BFB;
+  border-radius: 8rpx;
+}
+.page_bot{
+  width:83%;
+  height: auto;
+  background: #FFFFFF;
+  border-radius: 16rpx;
+  margin-top: 16rpx;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 30rpx 24rpx 58rpx 30rpx;
+}
+.bot_lt,.bot_mid,.bot_rig{
+  width: 30%;
+  height:104rpx;
+  font-weight: 500;
+  /* padding-left: 32rpx; */
+}
+.mid_title{
+  display: inline-block;
+  text-align: left;
+  padding:24rpx 0 64rpx 36rpx;
+  font-size: 28rpx;
+}
+.bot_label{
+  display: block;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 8rpx;
+  font-size: 24rpx;
+}
+.bot_text{
+  text-align: center;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+.bot_lab ,.page_bot label{
+  display: inline-block;
+
+  margin: 32rpx 0 4rpx 32rpx;
+  font-weight: bold;
+  color: #303133;
+  font-size: 28rpx;
+}
+.bot_lt,.bot_mid,.bot_rig{
+  /* padding-left: 36rpx; */
+}
+.bot_lab text,.bot_view text{
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.bot_bot{
+  padding-left: 32rpx;
+}
+.bot_bot image{
+  width: 28rpx;
+  height: 28rpx;
+  vertical-align: -3px;
+}
+.bot_bot text{
+font-size: 24rpx;
+font-weight: 500;
+color: #398BFB;
+}
+.page_bot label{
+  margin: 30rpx 0 24rpx 32rpx;
+}
+.bot_cont{
+  margin: 0 auto;
+  display: flex;
+  justify-content:space-between;
+  padding-left: 32rpx;
+  padding-right: 28rpx;
+  margin-bottom: 24rpx;
+}
+.bot_cont2{
+  margin-bottom: 98rpx;
+}
+.bot_view{
+  width: 48%;
+  height: 112rpx;
+  line-height: 112rpx;
+  background: #EFF4FD;
+  text-align: center;
+
+}
+.bot_view image{
+  width: 44rpx;
+  height: 44rpx;
+  vertical-align: -8rpx;
+  display: inline-block;
+  margin-right: 16rpx;
+}
+.bot_view text{
+font-size: 32rpx;
+font-weight: 500;
+color: #398BFB;
+  color: #398BFB;
+}
+.home-item {
+  width: 304rpx;
+  height: 112rpx;
+  background: #EFF4FD;
+  text-align: center;
+  margin-bottom: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ .home-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 18rpx;
+}
+ .home-item-text {
+  font-size: 32rpx;
+  font-family: PingFang-SC-Medium, PingFang-SC;
+  font-weight: 500;
+  color: #398BFB;
+}
+ .home-title {
+  width: 100%;
+  height: 40rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #303133;
+  line-height: 40rpx;
+  margin-bottom: 24rpx;
+}
+
+/***********图标大小*************/
+.icon_class1{
+  width: 44rpx;
+  height: 44rpx;
+}
+.icon_class2{
+  width: 38rpx;
+  height: 38rpx;
+}
+.icon_class3{
+  width: 40rpx;
+  height: 40rpx;
+}
+.icon_class4{
+  width: 38rpx;
+  height: 38rpx;
+}
+.icon_class5{
+  width: 40rpx;
+  height: 30rpx;
+  margin-left: -11px;
+}

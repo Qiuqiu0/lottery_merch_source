@@ -1,0 +1,48 @@
+<!--pages/accountDetails/account_details.wxml-->
+<view class="details_cont">
+  <view class="details_cont_view" 
+    wx:for="{{itemData}}" 
+    wx:for-item="item" 
+    wx:key="*this">
+    <view class="cont_title">
+      <label class="cont_label">{{item.month}}</label>
+      <label class="cont_label_text">
+        支出 ¥ <text>{{item.outAmt}}</text> 收入 ¥  <text>{{item.inAmt}}</text> 
+      </label>
+    </view>
+    <view 
+      wx:for="{{item.detail}}"  
+      wx:for-item="it" 
+      wx:key="key">
+      <van-cell 
+        wx:if="{{it.changeAmt>0}}"
+        title="{{it.changeType==1?'提现':'补贴'}}" 
+        value="+{{it.changeAmt}}" 
+        label="{{it.changeDate}}"  
+        title-class="title_class"
+        label-class="label_class"
+        value-class="value_class value_class2"
+        border="{{ false }}"
+      >
+      </van-cell>
+      <van-cell  
+        wx:else
+        title="{{it.changeType==1?'提现':'补贴'}}" 
+        value="{{it.changeAmt}}" 
+        label="{{it.changeDate}}"  
+        title-class="title_class"
+        label-class="label_class"
+        value-class="value_class"
+        border="{{ false }}"
+      ></van-cell>
+      <view class="divider_view">
+        <van-divider 
+        customStyle="margin:0;padding:0;color:#;height: 1px;width:94%;margin-left:6%;"/>
+      </view>
+    </view>
+  </view>
+  <view class="is_more" wx:if="{{noMore}}">
+    我是有底线的
+  </view>
+  <null-view  isShowNull="{{isShowNull}}"></null-view>  
+</view>

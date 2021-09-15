@@ -1,0 +1,147 @@
+/* pages/businessVerification/business_verification.wxss */
+view{
+  margin: 0 auto;
+  padding: 0;
+}
+.busin_view{
+  width: 100%;
+  height: 99vh;
+  background: #F8F8F8;
+}
+.busin_top{
+width: 100%;
+background: #398BFB;
+padding:42rpx 0 42rpx 30rpx ;
+}
+.weui_input{
+  width:79%;
+  height: 68rpx;
+  font-size: 32rpx;
+  background: #FFFFFF;
+  border: 1px solid #D8D8D8;
+  padding-left: 24rpx; 
+  line-height: 68rpx;
+  font-weight: 500;
+  color: #333;
+  float: left;
+  margin-right:30rpx;
+}
+.busin_top image{
+  width: 60rpx;
+  height: 60rpx;
+  display: block;
+  margin-top: 10rpx;
+}
+.busin_mid{
+  display: block;
+  width: 100%;
+  clear: both;
+  padding-left: 32rpx;
+  margin-top: 28rpx;
+  padding-bottom: 14rpx;
+}
+.busin_mid label{
+font-family: PingFangSC-Medium, PingFang SC;
+font-weight: 500;
+color: #303133;
+}
+.hide_view{
+  display: none;
+  overflow: hidden;
+}
+.show_view{
+  display: block;
+  overflow: hidden;
+}
+.busin_info{
+  display: block;
+  width: 92%;
+  background: #fff;
+  overflow: hidden;
+}
+.cont_info{
+  height: 40rpx;
+  padding: 0;
+  margin: 0 auto;
+  text-align: left;
+  padding-left:32rpx;
+  padding-top: 28rpx;
+}
+.cont_info_top{
+  padding-top: 36rpx;
+}
+.cont_info_mid{
+  padding-bottom: 34rpx;
+}
+.cont_info{ 
+font-size: 28rpx;
+font-family: PingFang-SC-Medium, PingFang-SC;
+font-weight: 500;
+color: #303133;
+}
+.cont_info_label{
+  display: inline-block;
+  float: right;
+  margin-right:34rpx ;
+}
+.busin_btn{
+  width: 92%;
+  text-align: center;
+  margin-top: 116rpx;
+}
+.busin_btn button{
+  
+height: 94rpx;
+background: #398BFB;
+line-height: 94rpx;
+border-radius: 8rpx;
+color: #fff;
+font-size: 40rpx;
+font-weight: bold;
+}
+.custom_class{
+width: 78%;
+height: 194rpx;
+background: #FFFFFF;
+border-radius: 12rpx;
+font-weight: bold;
+color: #303133;
+font-size: 40rpx;
+line-height: 194rpx;
+text-align: center;
+margin-top: -1.4%;
+}
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction:column;
+  height: 100%;
+}
+.custom_class2{
+  width: 78%;
+  height:282rpx;
+  background: #FFFFFF;
+border-radius: 12rpx;
+font-weight: bold;
+color: #303133;
+font-size: 40rpx;
+margin-top:8%;
+text-align: center;
+padding-top: 42rpx;
+}
+.custom_class2 label{
+  display: block;
+  margin-bottom:40rpx;
+}
+.custom_class2 text{ 
+font-size: 40rpx;
+font-weight: 500;
+color: #303133;
+}
+.close_img{
+  display: block;
+ width: 68rpx;
+ height: 68rpx;
+ margin-top:72rpx;
+}

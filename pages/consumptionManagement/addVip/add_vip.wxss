@@ -1,0 +1,49 @@
+/* pages/consumptionManagement/addVip/add_vip.wxss */
+.customer-detail {
+  padding-bottom: 164rpx;
+}
+.customer-detail .customer-label {
+  font-size: 28rpx;
+  color: #303133;
+}
+.customer-detail .customer-input {
+  font-size: 28rpx;
+  color: #303133;
+}
+.customer-address {
+  display: flex;
+  background: #fff;
+  min-height: 100rpx;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0 38rpx;
+}
+.customer-address .customer-address-text {
+  margin-left: 40rpx;
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 24rpx;
+}
+.btn_view{
+  overflow: hidden;
+  margin-top:194rpx ;
+}
+.text_view text{
+  font-size: 28rpx;
+font-weight: 500;
+color: #398BFB;
+display: inline-block;
+margin-right:76rpx;
+}
+.submit_btn{
+width: 96%;
+height: 94rpx;
+line-height: 94rpx;
+background: #398BFB;
+border-radius: 8rpx;
+color: #fff;
+margin-bottom: 12rpx;
+}
+

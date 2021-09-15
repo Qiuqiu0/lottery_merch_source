@@ -1,0 +1,158 @@
+/* pages/writeOffRecord/write_off_record.wxss */
+view{
+  margin: 0 auto;
+  padding: 0;
+}
+.write_off_cont{
+  width: 100%;
+  height: auto;
+  background: #F8F8F8;
+}
+.van_tabs{
+  width:70%;
+  height:100rpx;
+  line-height: 100rpx;
+  font-size: 32rpx;
+  font-family: PingFang-SC-Bold, PingFang-SC;
+  font-weight: bold !important;
+  color: #398BFB;
+  text-align: left;
+}
+.view_time{
+  position: fixed;
+  border-top: 1px solid #ebedf0;
+  /* top: 88rpx; */
+  width: 100%;
+  height: 82rpx;
+  background: #fff;
+  line-height: 82rpx;
+  overflow: hidden;
+}
+/* .date_field{
+font-size: 14px;
+font-weight: bold;
+color: #303133;
+  width:90px;
+  height: 40px;
+  float: left;
+  margin-left: 23px;
+} */
+.date_label{
+  display: inline-block;
+  margin-left:80rpx;
+  margin-right: 4rpx;
+  font-size: 28rpx;
+font-weight: bold;
+color: #303133;
+}
+.date_img{
+  width:13.98rpx;
+  height:10.56rpx;
+  vertical-align:4rpx;
+}
+.scroll_view_cont{
+  /* height:86vh; */
+}
+.view_cont{
+  clear: both;
+  margin: 0 auto;
+  width: 92%;
+  height:360rpx ;
+  background: #fff;
+  margin-top: 16rpx;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+.view_cont:last-child{
+  margin-bottom: 16rpx;
+}
+.cont_info{
+  width:100%;
+  height: 42rpx;
+  line-height: 42rpx;
+  padding: 0;
+  margin: 0 auto;
+  text-align: left;
+  overflow: hidden;
+  
+}
+.cont_info_top{
+  margin-top: 28rpx;
+}
+.cont_info_mid{
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+.cont_info text, .cont_info label{ 
+font-size: 28rpx;
+font-family: PingFang-SC-Medium, PingFang-SC;
+font-weight: 500;
+color: #000000;
+margin-left: 50rpx;
+
+}
+.cont_info text{
+  display:inline-block;
+  margin-left:22rpx ;
+  color: #AAAAAA;
+}
+.page_hd{
+  margin: 0 auto;
+  width: 92%;
+  padding: 0;
+  overflow: hidden;
+}
+
+
+.hd_left{
+  width: 102rpx;
+  height:102rpx;
+  background: #D8D8D8;
+  float: left;
+  margin:0  26rpx 24rpx 0;
+}
+.page_hdImg{
+  width: 102rpx;
+  height:102rpx;
+}
+.page_title{
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #5E5E5EFF;
+  line-height: 40rpx;
+  display: inline-block;
+  text-align: left;
+  margin-top:30rpx;
+}
+
+.check_date_view{
+  margin: 0 auto;
+  width: 90%;  
+font-size: 28rpx;
+font-weight: 500;
+color: #398BFB;
+padding-bottom: 14rpx;
+text-align: center;
+border-bottom: 1px solid #398BFB;
+}
+
+.but_view{
+  width: 100%;
+  margin: 0 auto;
+  padding: 32rpx 46rpx 64rpx 46rpx;
+  overflow: hidden;
+}
+.but_view label{
+display: inline-block;
+font-size: 32rpx;
+font-weight: 500;
+color: #303133;
+}
+.but_view label:last-child{
+  float: right;
+  margin-right:92rpx;
+}
+.null{
+  margin-top: 0;
+}

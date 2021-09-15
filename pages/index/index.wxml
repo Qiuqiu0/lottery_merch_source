@@ -1,0 +1,52 @@
+
+<view class="container">
+    <view class="page_hd" wx:if="{{userInfo.merchLogo}}">
+      <view class="hd_left" >
+        <image class="page_hdImg"  src="{{userInfo.merchLogo}}"></image>
+      </view>
+      <label class="page_title">{{userInfo.merchName}}</label>
+    </view>
+  <view wx:else>
+    <button  open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="authTel">登录</button>
+
+  </view>
+    <view class="page_mid">
+      <view class="mid_top">
+        <text class="mid_title">实时概况</text>
+        <view class="top_bot">
+          <view class="bot_lt">
+            <label class="bot_label">累计补贴</label>
+            <text class="bot_text">{{userInfo.incomeAmt}}</text>
+          </view>
+          <view class="bot_mid">
+            <label class="bot_label">当月补贴</label>
+            <text class="bot_text">{{userInfo.sumChangeAmtNowMonth}}</text>
+          </view>
+          <view class="bot_rig">
+            <label class="bot_label">今日补贴</label>
+            <text class="bot_text">{{userInfo.sumChangeAmtNowDay}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="mid_bot">
+        <label class="bot_lab">可提现    <text>¥ {{userInfo.balanceAmt}}</text>
+        </label>
+        <view class="mid_but">
+          <van-button type="info" size="small" data-merchId="{{userInfo.merchId}}"  bindtap="withdrawal">立即提现</van-button>
+        </view>
+        <view class="bot_bot">
+          <image src="../images/remind.png"></image>
+          <text>每月25日可提现上月补贴</text>
+        </view>
+      </view>
+    </view>
+    <view class="page_bot">
+      <view class="home-title">常用应用</view>
+      <view class="home-item" wx:for="{{applyList}}" data-merchid="{{userInfo.merchId}}"  wx:key="*this" data-info="{{item}}" bindtap="handleToPage">
+            <image class="home-icon {{item.class}}" src="{{item.iconUrl}}"/>
+            <text class="home-item-text">{{item.name}}</text>
+        </view>
+    </view>
+
+</view>
+

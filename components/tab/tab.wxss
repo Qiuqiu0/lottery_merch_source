@@ -1,0 +1,19 @@
+/* components/tab/tab.wxss */
+.com-tab {
+  height: 100rpx;
+  line-height: 100rpx;
+  background: #fff;
+}
+.com-tab .com-tab-text {
+  margin-right: 74rpx;
+  font-size: 32rpx;
+  font-family: PingFang-SC-Bold, PingFang-SC;
+  font-weight: bold;
+  color: #BFC2CC;
+}
+.com-tab .com-tab-text:first-child {
+  margin-left: 46rpx;
+}
+.com-tab .active-tab {
+  color: #398BFB;
+}

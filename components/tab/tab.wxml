@@ -1,0 +1,10 @@
+<!--components/tab/tab.wxml-->
+<view class="com-tab">
+    <text 
+        wx:for="{{tabItem}}"
+        bindtap="handleChange" 
+        data-index="{{index}}" 
+        class="{{active == index ? 'active-tab': ''}} com-tab-text"
+        wx:key="*this">{{item}}</text>
+</view>
+

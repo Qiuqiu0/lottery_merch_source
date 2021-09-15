@@ -1,0 +1,94 @@
+/* pages/user/customerList/customer_list.wxss */
+.customer-list {
+  padding-bottom: 124rpx;
+}
+.customer-list-content {
+  border-top: 2rpx #F8F8F8 solid;
+  padding-top: 200rpx;
+}
+.customer-list-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom:1px solid #F8F8F8;
+  padding-bottom: 32rpx;
+  background: #fff;
+}
+.customer-list-item .customer-checkbox {
+  width: 70rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.customer-list-item .customer-checkbox .customer-checkbox-img {
+  width: 36rpx;
+  height: 36rpx;
+}
+.customer-list-item .customer-info {
+  flex: 1;
+  background: #fff;
+  height: 100%;
+  display: flex;
+  /* align-items: center; */
+  padding:0 26rpx;
+  flex-wrap: wrap;
+ 
+}
+.customer-list-item .customer-info .customer-info-img {
+  width: 114rpx;
+  height: 114rpx;
+  background: #cecece;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.customer-list-item .customer-info .customer-info-right {
+  margin-left: 14rpx;
+}
+.customer-list-item .customer-info .customer-info-right .customer-info-title {
+  color: #303133;
+  line-height: 44rpx;
+  margin-top: -6rpx;
+}
+.customer-list-item .customer-info .customer-info-right .customer-info-text {
+  color: #909399;
+}
+.customer-list-footer {
+  justify-content: space-between;
+  padding-left: 20rpx;
+}
+.customer-info .customer-info-top{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 26rpx 0 24rpx 0;
+}
+.customer-info .customer-info-top .customer-info-view{
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
+.customer-info .customer-info-top .customer-info-view image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 4rpx;
+}
+.customer-info-top .customer-info-view text{
+  color: #398BFB;
+}
+.customer-info-right .info-text2{
+  color: #909399;
+  line-height: 40rpx;
+}
+.customer-info-bottom{
+  display: flex;
+}
+.customer-list-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.customer-list-search {
+  border-top: 2rpx solid #F8F8F8;
+}

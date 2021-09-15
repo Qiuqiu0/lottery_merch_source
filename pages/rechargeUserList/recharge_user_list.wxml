@@ -1,0 +1,59 @@
+<!--pages/rechargeUserList/recharge_user_list.wxml-->
+<!--pages/customer/customerList/customer_list.wxml-->
+<view class="customer-list" style="">
+    <view class="search">
+        <image class="search-img" src="/pages/images/search.png"/>
+        <input class="search-input" value="{{searchValue}}" bindinput="handleSearch" placeholder="请输入客户名称或者手机号进行搜索备份" placeholder-style="color:#BFC2CC;"/>
+    </view>
+    <view class="customer-list-content">
+        <view wx:for="{{listItem}}" wx:key="index" class="customer-list-item">
+            <view class="customer-info" data-id="{{item.userId}}" bindtap="handleToPageDetail">
+                <image class="customer-info-img" src="{{item.userPhoto}}"/>
+                <view class="customer-info-right">
+                    <view class="customer-info-title font32">{{item.userName}} {{item.userPhone}}</view>
+                    <text wx:if="{{type==2}}" class="customer-info-text font28">积分： {{item.balanceIntegral || 0}}</text>
+                    <text wx:else class="customer-info-text font28">余额： {{item.balanceAmt || 0}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="is_more" wx:if="{{noMore}}">
+            我是有底线的
+    </view>
+    <null-view  isShowNull="{{isShowNull}}"></null-view>
+    
+    <van-popup
+    show="{{ show }}"
+    position="center"
+    close-on-click-overlay="false"
+    custom-class="van_popup"
+    closeable
+    bind:close="onClose"
+    round
+    z-index="100"
+  >
+    <view style="margin-top:40rpx">
+        <view class="add-com-price">
+            <view class="add-cell-wap add-cell-input-wap" style="margin-top:60rpx;">
+                <text class="add-com-title add-com-title2" > {{userText}}： {{userAmt}}</text>
+            </view>
+            <view class="add-cell-wap add-cell-input-wap">
+                <text class="add-com-title" >{{userLabel}}</text>
+                <input class="add-cell-input" type="number" style="width:440rpx;" value="{{amt}}"  bindinput="changeAmt" placeholder="请输入{{userLabel}}"  maxlength="30" />
+                <text wx:if="{{type==2}}" class="add-cell-input-price">分</text>
+                <text wx:else class="add-cell-input-price">元</text>
+            </view>
+            <view class="add-cell-wap add-cell-input-wap"  style="margin-top:20rpx;height:auto">
+                <text class="add-com-title add-com-title2" style="width:120rpx">备注</text>
+                <textarea class="overlay-textarea" value="{{remark}}" placeholder="请输入内容" placeholder-style="color:#D3D3D3" bindinput="changeRemark"> </textarea>
+            </view>
+        </view>
+        <view style="text-align: center;padding: 18rpx;padding:60rpx">
+            <button  class="{{isDisabled?'disabledBtn':'buttonClass'}}" disabled="{{isDisabled}}" size="mini" bindtap="rechargeSure">{{btnTitle}}</button>
+        </view>
+    </view>
+    </van-popup>
+    <van-dialog id="van-dialog" />
+</view>
+
+

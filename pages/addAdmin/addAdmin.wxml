@@ -1,0 +1,47 @@
+<!--pages/addAdmin/addAdmin.wxml-->
+<view class="customer-detail">
+  <view style="margin-top:16rpx;">
+    <van-cell-group>
+        <van-field
+            value="{{ detailData.name}}"
+            label="店员名称"
+            placeholder="请输入店员名称"
+            input-align="right" 
+            required
+            label-class="customer-label"
+            input-class="customer-input"
+            bindinput="changeInputValue"
+            data-key="name" 
+        />
+        <van-field
+            value="{{ detailData.phoneNumber }}"
+            label="联系方式"
+            placeholder="请输入店员手机号"
+            maxlength="11"
+            input-align="right"
+            label-class="customer-label"
+            input-class="customer-input"
+            data-key="phoneNumber" 
+            bindinput="changeInputValue"
+            
+        />
+        <van-field
+            value="{{ detailData.workNumber }}"
+            label="工号"
+            placeholder="请输入店员工号"
+            maxlength="11"
+            input-align="right"
+            label-class="customer-label"
+            input-class="customer-input"
+            data-key="workNumber" 
+            bindinput="changeInputValue"
+            
+        />
+    </van-cell-group>
+  </view>
+  <view class="btn_view"> 
+    <button class="submit_btn" bindtap="submitReview">提交申请</button>
+  </view>
+</view>
+
+

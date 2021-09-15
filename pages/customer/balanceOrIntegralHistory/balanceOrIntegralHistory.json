@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "null-view":"/components/null/null"
+  },
+  "navigationBarTitleText": "积分历史"
+}

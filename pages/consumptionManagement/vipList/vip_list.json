@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-checkbox": "/miniprogram_npm/@vant/weapp/checkbox",
+    "van-checkbox-group": "/miniprogram_npm/@vant/weapp/checkbox-group",
+    "van-button": "/miniprogram_npm/@vant/weapp/button",
+    "van-overlay": "/miniprogram_npm/@vant/weapp/overlay",
+    "null-view":"/components/null/null"
+  },
+  "navigationBarTitleText": "会员列表"
+}

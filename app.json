@@ -1,0 +1,33 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/login",
+    "pages/writeOffRecord/write_off_record",
+    "pages/withdrawal/withdrawal",
+    "pages/accountDetails/account_details",
+    "pages/businessVerification/business_verification",
+    "pages/consumptionManagement/consumption_management",
+    "pages/customer/customerList/customer_list",
+    "pages/customer/customer",
+    "pages/consumptionManagement/vipList/vip_list",
+    "pages/consumptionManagement/addVip/add_vip",
+    "pages/consumptionManagement/consumptionRecord/consumption_record",
+    "pages/customer/customerDetail/customerDetail",
+    "pages/customer/lotteryHistory/lotteryHistory",
+    "pages/customer/consumptionHistory/consumptionHistory",
+    "pages/customer/sendMessage/sendMessage",
+    "pages/rechargeUserList/recharge_user_list",
+    "pages/customer/balanceOrIntegralHistory/balanceOrIntegralHistory",
+    "pages/commodity/commodity",
+    "pages/commodity/addCommodity/addCommodity",
+    "pages/addAdmin/addAdmin"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "首页",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {}
+}

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "van-popup":"/miniprogram_npm/@vant/weapp/popup",
+    "van-overlay":"/miniprogram_npm/@vant/weapp/overlay"
+  },
+  "navigationBarTitleText": "商家核销"
+}

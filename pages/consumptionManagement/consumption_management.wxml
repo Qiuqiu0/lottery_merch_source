@@ -1,0 +1,108 @@
+<!--pages/consumptionManagement/consumption_management.wxml-->
+<view class="manage_view">
+    <view class="manage_top_view">
+        <view class="manage_top page-section page-section-spacing swiper">  
+            <swiper indicator-dots="{{indicatorDots}}"
+                autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true">
+                <block wx:for="{{labelData}}" for-item="item" wx:key="*this">
+                <swiper-item>
+                    <view class="swiper-item demo-text-1">
+                        <view class="mid_top">
+                            <text class="mid_title">{{item.title}}</text>
+                            <view class="top_bot">
+                                <view class="bot_lt">
+                                    <label class="bot_label">{{item.label1}}</label>
+                                    <text class="bot_text">{{userItem[index].sl}}</text>
+                                </view>
+                                <view class="bot_mid">
+                                    <label class="bot_label">{{item.label2}}</label>
+                                    <text class="bot_text">{{userItem[index].amt}}</text>
+                                </view>
+                                <view class="bot_rig">
+                                    <label class="bot_label">{{item.label3}}</label>
+                                    <text class="bot_text">{{userItem[index].price}}</text>
+                                </view>
+                            </view>
+                        </view>   
+                    </view>
+                </swiper-item>
+                </block>
+            </swiper>
+        </view>
+        <view class="manage_bot">
+            <view class="view_time">   
+                <label class="date_label" bindtap="checkDate">{{payDateMonth}}</label>
+                <image class="date_img" src="../images/date_icon.png"></image>
+            </view>
+            <view class="view_check" bindtap="checkVip">会员历史</view>      
+        </view>
+    </view>
+    <view class="manage_bot_cont">
+        <view class="bot_cont" wx:for="{{listItem}}" wx:for-item="item" wx:key="*this" 
+        data-id="{{item.bookId}}" bindtap="onDetail">
+            <view class="bot_top_info">
+                <label class="bot_top_img-wap">
+                    <image src="../images/order.png" class="order_img"></image>
+                    <text>{{item.bookCode}}</text>
+                </label>
+                <label class="top_info_label">{{item.payTime}}</label>
+            </view>
+            <view class="bot_bot_info">
+                <view class="bot_info_left">
+                    <image class="" src="{{item.goodsImg}}"/> 
+                </view>
+                <view class="bot_info_right">
+                    <view class="info_right_view">
+                        <text style="height: 100rpx;flex:1">{{item.goodsName}}</text> 
+                        <text class="info_right_label">¥ {{item.payAmt}}</text>
+                    </view>
+                    <view class="info_right_view info_right_bot">
+                        <text class="info_right_title">积分{{item.integral}}</text>
+                        <view class="info_right_phone-img">
+                            <image src="../images/phone_icon.png" class="order_img order_img2" />
+                            <text>{{item.userPhone}}</text>
+                        </view>
+                    </view>
+                </view>            
+            </view>
+        </view>
+        <view class="is_more" wx:if="{{noMore}}">
+            我是有底线的
+        </view>
+        <view style="margin-top:-100rpx;"><null-view  isShowNull="{{isShowNull}}"></null-view></view>
+    </view>
+    
+    <view class="button_view">
+       <button  class="info_but" bindtap="onClick">消费登记</button>
+    </view>
+       
+      <!--日期弹出层-->
+  <van-popup
+    show="{{ popupDateShow }}"
+    position="bottom"
+    close-on-click-overlay="false"
+    custom-class="van_popup"
+    round
+  >
+    <view class="but_view">
+      <label bindtap="onClose">取消</label>
+      <label bindtap="confirmPicker">完成</label>
+    </view>
+    <view class="check_date_view">{{selectedDate}}</view> 
+    <van-datetime-picker
+      type="year-month"
+      value="{{ currentDate }}"
+      min-date="{{ minDate }}"
+      formatter="{{formatter}}"
+      cancel-button-text=""
+      confirm-button-text=""
+      bind:input="chanageDate"
+      active-class="active_class"
+      item-height="30"
+    >
+    </van-datetime-picker>
+
+  </van-popup>  
+    
+</view>
+  

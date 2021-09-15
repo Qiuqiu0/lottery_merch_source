@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-field":"/miniprogram_npm/@vant/weapp/field"
+  },
+  "navigationBarTitleText": "提现"
+}

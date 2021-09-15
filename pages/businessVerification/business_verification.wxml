@@ -1,0 +1,48 @@
+<!--pages/businessVerification/business_verification.wxml-->
+<view class="busin_view">
+  <view class="busin_top">
+    <input class="weui_input" maxlength="12" bindinput="bindKeyInput" value="{{winningCode}}" placeholder="请输入您的核销码"/>
+    <image bindtap="scanCodes" src="../images/saomiao.png"></image>
+  </view>
+  <view class="{{showView?'show_view':'hide_view'}}">
+    <view class="busin_mid">
+      <label>核销详情</label>
+    </view>
+    <view class="busin_info">
+      <view class="cont_info cont_info_top">
+            <label>商品名称</label>
+            <label class="cont_info_label">{{winningInfo.merchName}}</label>
+      </view>
+      <view class="cont_info">
+            <label>用户名称</label>
+            <label class="cont_info_label">{{winningInfo.userName}}</label>
+      </view>
+      <view class="cont_info">
+            <label>用户手机号</label>
+            <label class="cont_info_label">{{winningInfo.userPhone}}</label>
+      </view>
+      <view class="cont_info cont_info_mid">
+            <label>奖品信息</label>
+            <label class="cont_info_label">{{winningInfo.goodsName}}</label>
+      </view>  
+    </view>
+    <view class="busin_btn">
+        <button bindtap="showPopup">核销</button>
+    </view>
+  </view>
+  <van-popup 
+    custom-class="custom_class"
+    show="{{show}}" 
+    bindtap="onClose">核销成功！</van-popup>
+    <!--失败提示框-->
+  <van-overlay show="{{errorShow}}" >
+    <view class="wrapper">
+     <view class="custom_class2">
+      <label>核销失败</label>
+      <text>该核销码奖品已兑换！</text>
+      </view>
+    <image src="../images/close.png" class="close_img" bindtap="onClickHide"></image>
+    </view>
+  </van-overlay>
+  
+</view>

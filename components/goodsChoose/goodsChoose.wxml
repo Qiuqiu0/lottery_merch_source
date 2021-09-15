@@ -1,0 +1,51 @@
+<!--components/goodsChoose/goodsChoose.wxml-->
+<view wx:if="{{isShow}}" >
+  <van-overlay show="{{ isShow }}" z-index="300"  custom-style="display: flex;align-items: center;justify-content: center;" close-on-click-overlay="false">
+    <view class="customer_view">
+        <view class="customer_info_head">
+        <label>选择商品</label>
+        <image src="/pages/images/close2.png" data-type="close" catchtap="onClickHide"></image>
+        </view>    
+        <view class="acitvity-sp-wap">
+            <view class="acitvity-d-sp">
+                <view class="activity-sp-cell">
+                    <view class="activity-d-label activity-d-star font28">商品配置</view>
+                    <view class="activity-sp-value font28" catchtap="onClickHide" data-key="goodsName" data-value="goodsCode" data-type="goods">
+                        <view class="{{goodsName ? '' : 'activity-d-txt'}}">{{goodsInfo.goodsName || '选奖品'}}</view>
+                        <van-icon name="arrow" size="16" color="#949DA6"/>
+                    </view>
+                </view>    
+            </view> 
+            <view style="text-align: center;padding: 18rpx;padding:60rpx">
+                <button  class="buttonClass" class="{{isDisabled?'disabledBtn':'buttonClass'}}" disabled="{{isDisabled}}"  size="mini" bindtap="rechargeSure">确定</button>
+            </view>
+        </view>
+    </view>
+ </van-overlay>
+     <van-action-sheet show="{{ goodsShow }}"  z-index="310"  title="商品选择" bind:close="handleCancel" close-on-click-overlay="false">
+        <view>
+            <!-- <view class="search customer-list-search">
+                <image class="search-img" src="/pages/images/search.png"/>
+                <input class="search-input" value="{{searchName}}"  bindinput="handleSearch" placeholder="请输入客户名称或者手机号进行搜索备份" placeholder-style="color:#BFC2CC;"/>
+            </view> -->
+            <scroll-view scroll-y="true" style="height: 700rpx" bindscrolltolower="handleBindscrolltolower" catchtouchmove='true' >
+                <view class="commodity-item" wx:for="{{ listItem }}" wx:key="*this" catchtap="onClickHide" catchtouchmove='true' data-type="goodsshow" data-index="{{index}}" data-value="{{item}}">
+                    <image class="commodity-img" src="{{item.goodsImg}}"/>
+                    <view class="commodity-right">
+                        <text class="commodity-text commodity-title font28">{{item.goodsName}}</text>
+                        <view class="commodity-text commodity-price">
+                            <text class="commodity-text-left font24">补贴金额：{{item.subsidyAmt}}</text>
+                            <text class="commodity-text font24">商品编号：{{item.goodsCode}}</text>
+                        </view>
+                        <view class="commodity-t-btm">
+                            <text class="commodity-text-left font24">兑换方式：{{item.convertType == 1 ? '线上' : '线下'}}</text>
+                            <text class="commodity-text font24">兑换周期：{{item.cycleUnitName}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="no-more" wx:if="{{noMore}}" style="color: #cecece;margin-top:20rpx">暂无更多数据</view>
+            </scroll-view>
+            <null isShowNull="{{isShowNull}}"/>
+    </view>
+    </van-action-sheet>
+</view>
